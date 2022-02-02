@@ -9,8 +9,5 @@
         <module name="UIProjectJUnit" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="UIProjectJUnit" target="12" />
-    </bytecodeTargetLevel>
   </component>
 </project>
