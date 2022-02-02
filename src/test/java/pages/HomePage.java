@@ -29,4 +29,14 @@ import utilities.Driver;
         public WebElement continueShopping;
         @FindBy(xpath = "//a[@href='/delete_account']")
         public WebElement deleteButton;
+        @FindBy(xpath = "//i[@class='material-icons card_travel']")
+        public WebElement productButton;
+        @FindBy(xpath="//*[contains(text(),'recommended')]")
+        public WebElement recommended;
+        @FindBy(xpath = "(//a[@data-product-id='2' and @class='btn btn-default add-to-cart'])[3]")
+        public WebElement recommendedAddToCart;
+        @FindBy(xpath = "//*[contains(text(), 'View Cart')]")
+        public WebElement viewCart;
+        @FindBy(xpath = "//*[contains(text(), 'Men Tshirt')]")
+        public WebElement menTshirt;
     }
