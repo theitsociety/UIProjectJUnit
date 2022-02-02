@@ -24,7 +24,7 @@ public class TC09_EsraItest{
     @Test
     public void SearchProduct(){
         tc09_esraIpage = new TC09_EsraIpage();
-        Driver.getDriver().get(ConfigurationReader.getProperty("automation_Exercise_url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
         boolean text = tc09_esraIpage.automationExerciseText.isDisplayed();
         Assert.assertTrue(text);
