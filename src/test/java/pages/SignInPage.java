@@ -21,7 +21,7 @@ public class SignInPage {
     @FindBy(id = "name")
     public WebElement name;
 
-    @FindBy(id = "email")
+    @FindBy(xpath = "//*[@disabled='disabled']")
     public WebElement email;
 
     @FindBy(id = "password")

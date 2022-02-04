@@ -3,22 +3,19 @@ package tests;
 import com.github.javafaker.Faker;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import pages.CartPage;
 import pages.HomePage;
 import pages.SignInPage;
 import pages.SignUpLoginPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.Duration;
+
 
 public class TC24_UmmuhanK {
     Faker faker = new Faker();
@@ -37,22 +34,21 @@ public class TC24_UmmuhanK {
 
 //  3. Verify that home page is visible successfully
         homePage = new HomePage();
-        Assert.assertTrue(homePage.signUpLogin.isDisplayed());
+        ReusableMethods.verifyElementDisplayed(homePage.signUpLogin);
 
 //  4. Add products to cart
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(homePage.productBlueTop).perform();
+        ReusableMethods.doubleClick(homePage.productBlueTop);
         homePage.productBlueTop.click();
+        ReusableMethods.waitFor(1);
         homePage.addToCartProductBlueTop.click();
         homePage.continueShopping.click();
-
 
 //  5. Click 'Cart' button
         homePage.cartButton.click();
 
 //  6. Verify that cart page is displayed
         cartPage = new CartPage();
-        Assert.assertTrue(cartPage.cartPage.isDisplayed());
+        ReusableMethods.verifyElementDisplayed(cartPage.cartPage);
 
 //  7. Click Proceed To Checkout
         cartPage.proceedToCheckout.click();
@@ -62,21 +58,21 @@ public class TC24_UmmuhanK {
 
 //  9. Fill all details in Signup and create account
         homePage.signUpLogin.click();
-        signUpLoginPage =new SignUpLoginPage();
+        signUpLoginPage = new SignUpLoginPage();
         signUpLoginPage.signUpName.sendKeys("Jane");
-        signUpLoginPage.signUpEmail.sendKeys("janedoe23@gmail.com");
+        signUpLoginPage.signUpEmail.sendKeys("jane_1@gmail.com");
         signUpLoginPage.signInButton.click();
 
 //  10. Verify 'ACCOUNT CREATED!' and click 'Continue' button
 
         signInPage =new SignInPage();
-        Assert.assertTrue(signInPage.accountCrated.isDisplayed());
+        ReusableMethods.verifyElementDisplayed(signInPage.accountCrated);
 
         signInPage.genderCheckBox.click();
         signInPage.name.clear();
         signInPage.name.sendKeys("Jane");
-        signInPage.email.clear();
-        signInPage.email.sendKeys("janedoe23@gmail.com");
+//        signInPage.email.clear();
+//        signInPage.email.sendKeys("jane_1@gmail.com");
         signInPage.password.sendKeys("1234");
 
         Select daySelect = new Select(signInPage.day);
@@ -91,7 +87,7 @@ public class TC24_UmmuhanK {
         signInPage.newsletter.click();
         signInPage.receiveOffers.click();
 
-        signInPage.firstname.sendKeys("Alp");
+        signInPage.firstname.sendKeys("Jane");
         signInPage.lastname.sendKeys("Moore");
         signInPage.company.sendKeys("Apple");
 
@@ -109,10 +105,9 @@ public class TC24_UmmuhanK {
         signInPage.createAccount.click();
         signInPage.continue1.click();
 
-//11.   Verify ' Logged in as username' at top
+//      11.   Verify ' Logged in as username' at top
         String loggedUsername =homePage.loggedUsername.getText();
-        Assert.assertEquals("Logged in as Alp", loggedUsername);
-
+        Assert.assertEquals("Logged in as Jane", loggedUsername);
 
 //      12.Click 'Cart' button
         homePage.cartButton.click();
@@ -121,9 +116,8 @@ public class TC24_UmmuhanK {
         cartPage.proceedToCheckout.click();
 
 //      14. Verify Address Details and Review Your Order
-        Assert.assertTrue(cartPage.addressDetails.isDisplayed());
-        Assert.assertTrue(cartPage.reviewOrder.isDisplayed());
-
+        ReusableMethods.verifyElementDisplayed(cartPage.addressDetails);
+        ReusableMethods.verifyElementDisplayed(cartPage.reviewOrder);
 
 //      15. Enter description in comment text area and click 'Place Order'
         cartPage.commentText.sendKeys("hello");
@@ -140,7 +134,7 @@ public class TC24_UmmuhanK {
         cartPage.payAndConfirmOrder.click();
 
 //      18. Verify success message 'Your order has been placed successfully!'
-        Assert.assertTrue(cartPage.successMessage.isDisplayed());
+        ReusableMethods.verifyElementDisplayed(cartPage.successMessage);
 
 //      19. Click 'Download Invoice' button and verify invoice is downloaded successfully.
         cartPage.downlandInvoiceButton.click();

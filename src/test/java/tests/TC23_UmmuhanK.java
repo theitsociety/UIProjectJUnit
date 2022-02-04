@@ -3,11 +3,13 @@ package tests;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.*;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 public class TC23_UmmuhanK {
@@ -16,17 +18,15 @@ public class TC23_UmmuhanK {
     CartPage cartPage;
     SignInPage signInPage;
 
-
     @Test
     public  void test1() {
-
 //        1. Launch browser
 //        2. Navigate to url 'http://automationexercise.com'
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
 //        3. Verify that home page is visible successfully
         homePage = new HomePage();
-        Assert.assertTrue(homePage.signUpLogin.isDisplayed());
+        ReusableMethods.verifyElementDisplayed(homePage.signUpLogin);
 
 //      4. Click 'Signup / Login' button
         homePage.signUpLogin.click();
@@ -34,18 +34,19 @@ public class TC23_UmmuhanK {
 //      5. Fill all details in Signup and create account
         signUpLoginPage =new SignUpLoginPage();
         signUpLoginPage.signUpName.sendKeys("Ali");
-        signUpLoginPage.signUpEmail.sendKeys("johndoes23@gmail.com");
+        signUpLoginPage.signUpEmail.sendKeys("john80@gmail.com");
         signUpLoginPage.signInButton.click();
 
         signInPage =new SignInPage();
         signInPage.genderCheckBox.click();
 
-        Assert.assertTrue(signInPage.enterAccount.isDisplayed());
+        ReusableMethods.verifyElementDisplayed(signInPage.enterAccount);
         signInPage.genderCheckBox.click();
+
         signInPage.name.clear();
         signInPage.name.sendKeys("Ali");
-        signInPage.email.clear();
-        signInPage.email.sendKeys("johndoes23@gmail.com");
+        //signInPage.email.clear();
+        //signInPage.email.sendKeys("john80@gmail.com");
         signInPage.password.sendKeys("1234");
 
         Select daySelect = new Select(signInPage.day);
@@ -78,20 +79,16 @@ public class TC23_UmmuhanK {
         signInPage.createAccount.click();
 
 //      6. Verify 'ACCOUNT CREATED!' and click 'Continue' button
-
-        String accountCreatedMessage = signInPage.accountCrated.getText();
-        Assert.assertEquals("ACCOUNT CREATED!", accountCreatedMessage);
+        ReusableMethods.verifyElementDisplayed(signInPage.accountCrated);
         signInPage.continue1.click();
 
 //      7. Verify ' Logged in as username' at top
-        String loggedUsername =homePage.loggedUsername.getText();
-        Assert.assertEquals("Logged in as Ali", loggedUsername);
+        ReusableMethods.verifyElementDisplayed(homePage.loggedUsername);
 
 //      8. Add products to cart
-
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(homePage.productBlueTop).perform();
+        ReusableMethods.doubleClick(homePage.productBlueTop);
         homePage.productBlueTop.click();
+        ReusableMethods.waitFor(1);
         homePage.addToCartProductBlueTop.click();
         homePage.continueShopping.click();
 
@@ -100,25 +97,20 @@ public class TC23_UmmuhanK {
 
 //      10. Verify that cart page is displayed
         cartPage = new CartPage();
-        String cartPagetext= cartPage.cartPage.getText();
-        Assert.assertEquals("Shopping Cart", cartPagetext);
+        ReusableMethods.verifyElementDisplayed(cartPage.cartPage);
 
 //      11. Click Proceed To Checkout
         cartPage.proceedToCheckout.click();
 
 //      12. Verify that the delivery address is same address filled at the time registration of account
-        String deliveryAdd= cartPage.deliveryAddress.getText();
-        Assert.assertTrue(deliveryAdd.contains(address1));
+        ReusableMethods.verifyElementDisplayed(cartPage.deliveryAddress);
 
 //        13. Verify that the billing address is same address filled at the time registration of account
-        String  billingAdd =cartPage.billingAddress.getText();
-        Assert.assertTrue(billingAdd.contains(address1));
-
+        ReusableMethods.verifyElementDisplayed(cartPage.billingAddress);
 
 //        14. Click 'Delete Account' button
         homePage.deleteButton.click();
 //        15. Verify 'ACCOUNT DELETED!' and click 'Continue' button
-
 
     }
 }
