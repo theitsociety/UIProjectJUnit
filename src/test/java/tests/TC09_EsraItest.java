@@ -2,6 +2,7 @@ package tests;
 
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -34,8 +35,9 @@ public class TC09_EsraItest{
     public void SearchProduct() {
         tc09_SearchProduct_esraIpage = new TC09_SearchProduct_EsraIpage();
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-
+       // Assert.assertEquals("Automation Exercise", Driver.getDriver().getTitle());
         ReusableMethods.verifyElementDisplayed(tc09_SearchProduct_esraIpage.automationExerciseText);
+
         tc09_SearchProduct_esraIpage.products.click();
         ReusableMethods.verifyElementDisplayed(tc09_SearchProduct_esraIpage.allProductsText);
 
