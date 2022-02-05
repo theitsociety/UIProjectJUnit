@@ -5,10 +5,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class TC09_EsraIpage {
+public class TC09_SearchProduct_EsraIpage {
 
 
-    public TC09_EsraIpage(){
+    public TC09_SearchProduct_EsraIpage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
    // @FindBy(className ="logo pull-left")
@@ -19,7 +19,7 @@ public class TC09_EsraIpage {
     public WebElement products;
 
     @FindBy(xpath="//h2[contains(text(),'All Products')]")
-    public WebElement allProducts;
+    public WebElement allProductsText;
 
     @FindBy(xpath="//input[@class= 'form-control input-lg']")
     public WebElement searchBox;
@@ -29,6 +29,11 @@ public class TC09_EsraIpage {
 
     @FindBy(xpath="//h2[contains(text(),'Searched Products')]")
     public WebElement searchedProducts;
+
+    @FindBy(xpath="//div[@class='product-image-wrapper']")
+    public WebElement allProducts;
+
+
 
 }
 

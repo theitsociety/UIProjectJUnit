@@ -1,10 +1,18 @@
 package tests;
 
-import org.junit.Assert;
+
+import org.junit.After;
 import org.junit.Test;
-import pages.TC09_EsraIpage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import pages.TC09_SearchProduct_EsraIpage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class TC09_EsraItest{
 /*
@@ -17,32 +25,48 @@ public class TC09_EsraItest{
     7. Verify 'SEARCHED PRODUCTS' is visible
     8. Verify all the products related to search are visible
      */
+    //TC09_SearchProduct_EsraIpage
 
+    TC09_SearchProduct_EsraIpage tc09_SearchProduct_esraIpage;
 
-    TC09_EsraIpage tc09_esraIpage;
 
     @Test
-    public void SearchProduct(){
-        tc09_esraIpage = new TC09_EsraIpage();
+    public void SearchProduct() {
+        tc09_SearchProduct_esraIpage = new TC09_SearchProduct_EsraIpage();
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
-        boolean text = tc09_esraIpage.automationExerciseText.isDisplayed();
-        Assert.assertTrue(text);
-        tc09_esraIpage.products.click();
+        ReusableMethods.verifyElementDisplayed(tc09_SearchProduct_esraIpage.automationExerciseText);
+        tc09_SearchProduct_esraIpage.products.click();
+        ReusableMethods.verifyElementDisplayed(tc09_SearchProduct_esraIpage.allProductsText);
 
-        String allProductsText =tc09_esraIpage.allProducts.getText();
-        Assert.assertEquals(allProductsText,"ALL PRODUCTS");
+        tc09_SearchProduct_esraIpage.searchBox.sendKeys("Blue Top");
+        tc09_SearchProduct_esraIpage.searchButton.click();
 
-        tc09_esraIpage.searchBox.sendKeys("Blue Top");
-        tc09_esraIpage.searchButton.click();
+        ReusableMethods.waitForVisibility(tc09_SearchProduct_esraIpage.searchedProducts, 1000);
+        ReusableMethods.verifyElementDisplayed(tc09_SearchProduct_esraIpage.searchedProducts);
+        Driver.getDriver().navigate().back();
 
-        String searchProducts= tc09_esraIpage.searchedProducts.getText();
-        Assert.assertEquals(searchProducts, "SEARCHED PRODUCTS");
+        List<WebElement> productList = Driver.getDriver().findElements(By.xpath("//div[@class='product-image-wrapper']"));
+        System.out.println(productList.size());
 
+        List<String> allProductList= new ArrayList<>();
+        for (WebElement eachPrice : productList) {
+            allProductList.add(eachPrice.getText());
+        }
+        System.out.println(allProductList);
+
+        ReusableMethods.verifyElementDisplayed(tc09_SearchProduct_esraIpage.allProducts);
 
 
 
     }
+    @After
+    public void tearDown() {
+        Driver.getDriver().close();
+
+
+    }
+
 
 
 }
