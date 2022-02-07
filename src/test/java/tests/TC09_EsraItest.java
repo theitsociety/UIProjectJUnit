@@ -2,11 +2,11 @@ package tests;
 
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import pages.TC09_SearchProduct_EsraIpage;
+import pages.HomePage;
+import pages.ProductPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -26,26 +26,27 @@ public class TC09_EsraItest{
     7. Verify 'SEARCHED PRODUCTS' is visible
     8. Verify all the products related to search are visible
      */
-    //TC09_SearchProduct_EsraIpage
 
-    TC09_SearchProduct_EsraIpage tc09_SearchProduct_esraIpage;
+    HomePage homePage;
+    ProductPage productPage;
 
 
     @Test
     public void SearchProduct() {
-        tc09_SearchProduct_esraIpage = new TC09_SearchProduct_EsraIpage();
+        homePage = new HomePage();
+        productPage = new ProductPage();
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
        // Assert.assertEquals("Automation Exercise", Driver.getDriver().getTitle());
-        ReusableMethods.verifyElementDisplayed(tc09_SearchProduct_esraIpage.automationExerciseText);
+        ReusableMethods.verifyElementDisplayed(homePage.automationExerciseText);
 
-        tc09_SearchProduct_esraIpage.products.click();
-        ReusableMethods.verifyElementDisplayed(tc09_SearchProduct_esraIpage.allProductsText);
+        productPage.products.click();
+        ReusableMethods.verifyElementDisplayed( productPage.allProductsText);
 
-        tc09_SearchProduct_esraIpage.searchBox.sendKeys("Blue Top");
-        tc09_SearchProduct_esraIpage.searchButton.click();
+        productPage.searchBox.sendKeys("Blue Top");
+        productPage.searchButton.click();
 
-        ReusableMethods.waitForVisibility(tc09_SearchProduct_esraIpage.searchedProducts, 1000);
-        ReusableMethods.verifyElementDisplayed(tc09_SearchProduct_esraIpage.searchedProducts);
+        ReusableMethods.waitForVisibility( productPage.searchedProducts, 1000);
+        ReusableMethods.verifyElementDisplayed( productPage.searchedProducts);
         Driver.getDriver().navigate().back();
 
         List<WebElement> productList = Driver.getDriver().findElements(By.xpath("//div[@class='product-image-wrapper']"));
@@ -57,7 +58,7 @@ public class TC09_EsraItest{
         }
         System.out.println(allProductList);
 
-        ReusableMethods.verifyElementDisplayed(tc09_SearchProduct_esraIpage.allProducts);
+        ReusableMethods.verifyElementDisplayed( productPage.allProducts);
 
 
 
