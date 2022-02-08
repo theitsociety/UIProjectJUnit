@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import pages.CartPage;
 import pages.HomePage;
 import pages.ProductPage;
 import utilities.ConfigurationReader;
@@ -14,6 +15,7 @@ public class TC12_AddProductsInCart {
 
     HomePage homePage;
     ProductPage productPage;
+    CartPage cartPage;
 
     @Test
     public void addProductsInCart(){
@@ -48,13 +50,28 @@ public class TC12_AddProductsInCart {
 
         productPage.viewCart.click();
 
-        Assert.assertTrue(productPage.productPicture1.isDisplayed());
-        Assert.assertTrue(productPage.productPicture2.isDisplayed());
+        cartPage = new CartPage();
 
-//        WebElement product1 = Driver.getDriver().findElement(By.id("product-1"));
-//        Assert.assertTrue(product1.getText().contains("Blue Top"));
-//        WebElement product2 = Driver.getDriver().findElement(By.id("product-2"));
-//        Assert.assertTrue(product2.getText().contains("Men Tshirt"));
+
+        Assert.assertTrue(cartPage.product1.isDisplayed());
+
+        Assert.assertTrue(cartPage.product2.isDisplayed());
+
+        Assert.assertEquals("Rs. 500", cartPage.product_1_Price.getText());
+
+        Assert.assertEquals("Rs. 400", cartPage.product_2_Price.getText());
+
+        Assert.assertEquals("1", cartPage.product_1_Quantity.getText());
+
+        Assert.assertEquals("1", cartPage.product_2_Quantity.getText());
+
+        Assert.assertEquals("Rs. 500",cartPage.product_1_TotalPrice.getText());
+
+        Assert.assertEquals("Rs. 400",cartPage.product_2_TotalPrice.getText());
+
+
+
+
 
 
 
