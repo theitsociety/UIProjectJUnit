@@ -46,6 +46,7 @@ public class ProductPage {
     @FindBy(xpath="//h2[contains(text(),'Searched Products')]")
     public WebElement searchedProducts;
 
+
     @FindBy(xpath="//div[@class='product-image-wrapper']")
     public WebElement allProducts;
 

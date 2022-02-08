@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
@@ -7,9 +8,8 @@ import pages.HomePage;
 import pages.ProductPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.JSUtils;
 import utilities.ReusableMethods;
-
-import javax.swing.*;
 
 public class TC10_EsraItest {
 
@@ -29,20 +29,32 @@ public class TC10_EsraItest {
     public void VerifySubscriptionInHomePage() {
         homePage = new HomePage();
         productPage = new ProductPage();
+
+        //Navigate to url 'http://automationexercise.com'
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-        // Assert.assertEquals("Automation Exercise", Driver.getDriver().getTitle());
+
+
+        //Verify that home page is visible successfully
+        Assert.assertEquals("Automation Exercise", Driver.getDriver().getTitle());
         ReusableMethods.verifyElementDisplayed(homePage.automationExerciseText);
 
-//        Actions actions = new Actions(Driver.getDriver());
-//        actions.keyDown(homePage.subscriptionText, Keys.SHIFT);
 
-        ReusableMethods.scrollToElement(homePage.subscriptionText);
+        //Scroll down to footer
+        JSUtils.scrollDownByJS();
+        ReusableMethods.waitFor(2);
+
+
+        //Verify text 'SUBSCRIPTION'
         ReusableMethods.verifyElementDisplayed(homePage.subscriptionText);
 
+        //Enter email address in input and click arrow button
         homePage.emailTextBox.sendKeys("ghhh@gmail.com");
         homePage.arrowButton.click();
 
+        //Verify success message 'You have been successfully subscribed!' is visible
+        ReusableMethods.waitFor(1);
         ReusableMethods.verifyElementDisplayed(homePage.successMessage);
+
 
     }
 }

@@ -45,13 +45,13 @@ public class HomePage {
     public WebElement menTshirt;
 
 
-    @FindBy(xpath = "h2[(text () ='Subscription')]")
+    @FindBy(xpath = "//div//h2[(text() ='Subscription')]")
     public WebElement subscriptionText;
-    @FindBy(id= " susbscribe_email")
+    @FindBy(id="susbscribe_email")
     public WebElement emailTextBox;
-    @FindBy(className= "fa fa-arrow-circle-o-right")
+    @FindBy(xpath="//i[@class='fa fa-arrow-circle-o-right']")
     public WebElement arrowButton;
-    @FindBy(id= "success-subscribe")
+    @FindBy(id="success-subscribe")
     public WebElement successMessage;
 
 }

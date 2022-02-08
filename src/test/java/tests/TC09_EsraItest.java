@@ -2,6 +2,7 @@ package tests;
 
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -30,39 +31,56 @@ public class TC09_EsraItest{
     HomePage homePage;
     ProductPage productPage;
 
-
     @Test
     public void SearchProduct() {
         homePage = new HomePage();
         productPage = new ProductPage();
+
+        //Navigate to url 'http://automationexercise.com'
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-       // Assert.assertEquals("Automation Exercise", Driver.getDriver().getTitle());
+
+        //  Verify that home page is visible successfully
+        Assert.assertEquals("Automation Exercise", Driver.getDriver().getTitle());
         ReusableMethods.verifyElementDisplayed(homePage.automationExerciseText);
 
+        //Click on 'Products' button
         productPage.products.click();
+
+        // Verify user is navigated to ALL PRODUCTS page successfully
         ReusableMethods.verifyElementDisplayed( productPage.allProductsText);
 
+        // Enter product name in search input and click search button
         productPage.searchBox.sendKeys("Blue Top");
         productPage.searchButton.click();
 
-        ReusableMethods.waitForVisibility( productPage.searchedProducts, 1000);
+        //Verify 'SEARCHED PRODUCTS' is visible
         ReusableMethods.verifyElementDisplayed( productPage.searchedProducts);
         Driver.getDriver().navigate().back();
+
+
+
+        //Verify all the products related to search are visible
+        ReusableMethods.verifyElementDisplayed(productPage.allProducts);
+        Assert.assertTrue(productPage.allProducts.isDisplayed());
+
 
         List<WebElement> productList = Driver.getDriver().findElements(By.xpath("//div[@class='product-image-wrapper']"));
         System.out.println(productList.size());
 
         List<String> allProductList= new ArrayList<>();
+        List<String> allProductsHas = new ArrayList<>();
         for (WebElement eachPrice : productList) {
             allProductList.add(eachPrice.getText());
+            allProductsHas.add(eachPrice.getText());
         }
-        System.out.println(allProductList);
 
-        ReusableMethods.verifyElementDisplayed( productPage.allProducts);
-
-
+        System.out.println("All products are visible!!! " + "\n" + allProductList);
+        Assert.assertEquals(allProductList,allProductsHas);
 
     }
+
+
+
     @After
     public void tearDown() {
         Driver.getDriver().close();
