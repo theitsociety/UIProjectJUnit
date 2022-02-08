@@ -67,6 +67,12 @@ public class ProductPage {
     @FindBy(xpath = " //p[@class='text-center']//a")
     public WebElement viewCart;
 
+    @FindBy(xpath="//input[@id='search_product']")
+    public WebElement searchProduct;
+    @FindBy(xpath="//h2[@class='title text-center']")
+    public WebElement searchedProductsText;
+
+
 }
 
 
