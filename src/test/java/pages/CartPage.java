@@ -46,4 +46,33 @@ public class CartPage {
     @FindBy (xpath = "//a[@data-qa='continue-button']" )
     public WebElement continueButton;
 
+    @FindBy(xpath = "//input[@id='susbscribe_email']")
+    public WebElement subscriptionEmail;
+
+    @FindBy(linkText = "Blue Top")
+    public WebElement product1;
+
+    @FindBy(linkText = "Men Tshirt")
+    public WebElement product2;
+
+    @FindBy(xpath = "(//td[@class='cart_price'])[1]")
+    public WebElement product_1_Price;
+
+    @FindBy(xpath = "(//td[@class='cart_price'])[2]")
+    public WebElement product_2_Price;
+
+    @FindBy(xpath = "//*[@id=\"product-1\"]/td[4]/button")
+    public WebElement product_1_Quantity;
+
+    @FindBy(xpath = "//*[@id=\"product-2\"]/td[4]/button")
+    public WebElement product_2_Quantity;
+
+    @FindBy(xpath = "(//p[@class='cart_total_price'])[1]")
+    public WebElement product_1_TotalPrice;
+
+    @FindBy(xpath = "(//p[@class='cart_total_price'])[2]")
+    public WebElement product_2_TotalPrice;
+
+
+
 }
