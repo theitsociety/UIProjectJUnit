@@ -46,4 +46,15 @@ public class CartPage {
     @FindBy (xpath = "//a[@data-qa='continue-button']" )
     public WebElement continueButton;
 
+    @FindBy(xpath = "//input[@id='susbscribe_email']")
+    public WebElement subscriptionEmail;
+
+    @FindBy(linkText = "Blue Top")
+    public WebElement product1;
+
+    @FindBy(linkText = "Men Tshirt")
+    public WebElement product2;
+
+
+
 }
