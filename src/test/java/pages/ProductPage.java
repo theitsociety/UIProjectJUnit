@@ -31,6 +31,7 @@ public class ProductPage {
 
 
 
+
     @FindBy(xpath="(//li)[2]")
     public WebElement products;
 
@@ -50,4 +51,4 @@ public class ProductPage {
     @FindBy(xpath="//div[@class='product-image-wrapper']")
     public WebElement allProducts;
 
-}
+

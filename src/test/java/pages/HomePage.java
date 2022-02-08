@@ -9,8 +9,10 @@ public class HomePage {
     public HomePage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
+
     @FindBy(xpath ="//div[@class='logo pull-left']")
     public WebElement automationExerciseText;
+
 
 
     @FindBy(xpath="//a[@href='/login']")
@@ -45,6 +47,7 @@ public class HomePage {
     public WebElement menTshirt;
 
 
+
     @FindBy(xpath = "//div//h2[(text() ='Subscription')]")
     public WebElement subscriptionText;
     @FindBy(id="susbscribe_email")
@@ -54,4 +57,4 @@ public class HomePage {
     @FindBy(id="success-subscribe")
     public WebElement successMessage;
 
-}
+
