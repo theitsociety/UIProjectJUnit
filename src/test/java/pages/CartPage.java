@@ -10,7 +10,11 @@ public class CartPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
     @FindBy(xpath ="//*[text()='Shopping Cart'] " )
-    public WebElement cartPage ;
+    public WebElement cartPage;
+    @FindBy(xpath = "//i[@class='fa fa-times']")
+    public WebElement deleteButton;
+    @FindBy(xpath = "//*[contains(text(),'Cart is empty!')]")
+    public WebElement cartEmptyText;
     @FindBy(xpath ="//*[text()='Proceed To Checkout']" )
     public WebElement proceedToCheckout ;
     @FindBy(xpath = "(//li[@class='address_address1 address_address2'])[2]" )
@@ -46,33 +50,6 @@ public class CartPage {
     @FindBy (xpath = "//a[@data-qa='continue-button']" )
     public WebElement continueButton;
 
-    @FindBy(xpath = "//input[@id='susbscribe_email']")
-    public WebElement subscriptionEmail;
-
-    @FindBy(linkText = "Blue Top")
-    public WebElement product1;
-
-    @FindBy(linkText = "Men Tshirt")
-    public WebElement product2;
-
-    @FindBy(xpath = "(//td[@class='cart_price'])[1]")
-    public WebElement product_1_Price;
-
-    @FindBy(xpath = "(//td[@class='cart_price'])[2]")
-    public WebElement product_2_Price;
-
-    @FindBy(xpath = "//*[@id=\"product-1\"]/td[4]/button")
-    public WebElement product_1_Quantity;
-
-    @FindBy(xpath = "//*[@id=\"product-2\"]/td[4]/button")
-    public WebElement product_2_Quantity;
-
-    @FindBy(xpath = "(//p[@class='cart_total_price'])[1]")
-    public WebElement product_1_TotalPrice;
-
-    @FindBy(xpath = "(//p[@class='cart_total_price'])[2]")
-    public WebElement product_2_TotalPrice;
-
-
-
 }
+
+
