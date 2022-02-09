@@ -2,6 +2,7 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+<<<<<<< HEAD
       <option name="id" value="vaadin-addons" />
       <option name="name" value="vaadin-addons" />
       <option name="url" value="https://maven.vaadin.com/vaadin-addons" />
@@ -20,6 +21,11 @@
       <option name="id" value="snapshots-repo" />
       <option name="name" value="snapshots-repo" />
       <option name="url" value="https://oss.sonatype.org/content/repositories/snapshots" />
+=======
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+>>>>>>> main
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
@@ -31,6 +37,7 @@
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
+<<<<<<< HEAD
     <remote-repository>
       <option name="id" value="spring-snapshots" />
       <option name="name" value="Spring Snapshots" />
@@ -51,5 +58,7 @@
       <option name="name" value="central" />
       <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
+=======
+>>>>>>> main
   </component>
 </project>

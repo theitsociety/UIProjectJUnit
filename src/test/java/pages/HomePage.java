@@ -1,14 +1,21 @@
 package pages;
 
 import com.github.dockerjava.api.model.CpuStatsConfig;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
     public class HomePage {
         public HomePage(){
             PageFactory.initElements(Driver.getDriver(),this);
         }
+
+        @FindBy(xpath = "//div[@class='logo pull-left']")
+        public WebElement automationExerciseText;
+
 
         @FindBy(xpath="//a[@href='/login']")
         public WebElement signUpLogin;
@@ -44,7 +51,6 @@ import utilities.Driver;
         public WebElement slideImagesText;
         @FindBy(xpath = "//a[@href= '/product_details/1']")
         public WebElement blueTop;
-
         //Product Detail Page
         @FindBy(xpath = "//a[@href= '#reviews']")
         public WebElement writeYourReview;
@@ -55,4 +61,23 @@ import utilities.Driver;
         @FindBy(xpath="//*[contains(text(), 'View Cart')]")
         public WebElement viewCartBlueTop;
 
-    }
+        @FindBy(xpath = "//div//h2[(text() ='Subscription')]")
+        public WebElement subscriptionText;
+        @FindBy(id = "susbscribe_email")
+        public WebElement emailTextBox;
+        @FindBy(xpath = "//i[@class='fa fa-arrow-circle-o-right']")
+        public WebElement arrowButton;
+        @FindBy(id = "success-subscribe")
+        public WebElement successMessage;
+
+
+        @FindBy(xpath = "//*[contains(text(),'Subscription')]")
+        public WebElement subciptionButton;
+
+        @FindBy(xpath = "//*[text()='Full-Fledged practice website for Automation Engineers'][1]")
+        public WebElement fullText;
+
+        @FindBy(xpath = "//*[@id='scrollUp']")
+        public WebElement UpArrow;
+
+}

@@ -26,4 +26,7 @@ public class ContactUsPage {
     public WebElement submit;
     @ FindBy(xpath= "//*[text()='Success! Your details have been submitted successfully.']")
     public WebElement successMessage;
+
 }
+
+
