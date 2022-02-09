@@ -1,5 +1,6 @@
 package pages;
 
+import com.github.dockerjava.api.model.CpuStatsConfig;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -39,4 +40,22 @@ import utilities.Driver;
         public WebElement viewCart;
         @FindBy(xpath = "//*[contains(text(), 'Men Tshirt')]")
         public WebElement menTshirt;
+        @FindBy(xpath = "//*[contains(text(), 'Full-Fledged')]")
+        public WebElement slideImagesText;
+        @FindBy(xpath = "//a[@href= '/product_details/1']")
+        public WebElement blueTop;
+
+        //Product Detail Page
+        @FindBy(xpath = "//a[@href= '#reviews']")
+        public WebElement writeYourReview;
+        @FindBy(xpath = "//input[@id= 'quantity']")
+        public WebElement quantityOfBlueTop;
+        @FindBy(xpath="//button[@class='btn btn-default cart']")
+        public WebElement addCartBlueTop;
+        @FindBy(xpath="//*[contains(text(), 'View Cart')]")
+        public WebElement viewCartBlueTop;
+
+
+
+
     }

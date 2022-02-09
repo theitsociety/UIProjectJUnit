@@ -24,8 +24,15 @@ public class TC13_DemetA {
     @Test
     public void test13() {
         homePage = new HomePage();
-
-
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        ReusableMethods.waitForVisibility(homePage.slideImagesText, 10);
+        ReusableMethods.verifyElementDisplayed(homePage.slideImagesText);
+        homePage.blueTop.click();
+        ReusableMethods.verifyElementDisplayed(homePage.writeYourReview);
+        homePage.quantityOfBlueTop.sendKeys("4");
+        homePage.addCartBlueTop.click();
+        homePage.viewCartBlueTop.click();
+        ReusableMethods.verifyElementDisplayed(homePage.blueTop);
     }
     @After
     public void tearDown(){
