@@ -48,6 +48,7 @@ public class ProductPage {
 
     @FindBy(xpath = "//div[@class='product-image-wrapper']")
     public WebElement allProducts;
+}
 
     @FindBy(xpath = "//img[@src='/get_product_picture/1']")
     public WebElement productPicture1;
