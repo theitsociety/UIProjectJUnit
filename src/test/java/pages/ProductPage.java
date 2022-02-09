@@ -50,4 +50,30 @@ public class ProductPage {
     public WebElement allProducts;
 }
 
+    @FindBy(xpath = "//img[@src='/get_product_picture/1']")
+    public WebElement productPicture1;
+
+    @FindBy(xpath = "(//i[@class='fa fa-shopping-cart'])[2]")
+    public WebElement addToCart;
+
+    @FindBy(xpath = "//button[@class='btn btn-success close-modal btn-block']")
+    public WebElement continueShopping;
+
+    @FindBy(xpath = "//img[@src='/get_product_picture/2']")
+    public WebElement productPicture2;
+
+    @FindBy(xpath = "//a[@data-product-id='2']")
+    public WebElement addToCart2;
+
+    @FindBy(xpath = " //p[@class='text-center']//a")
+    public WebElement viewCart;
+
+    @FindBy(xpath="//input[@id='search_product']")
+    public WebElement searchProduct;
+    @FindBy(xpath="//h2[@class='title text-center']")
+    public WebElement searchedProductsText;
+
+
+}
+
 
