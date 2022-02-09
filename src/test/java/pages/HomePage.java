@@ -55,7 +55,4 @@ import utilities.Driver;
         @FindBy(xpath="//*[contains(text(), 'View Cart')]")
         public WebElement viewCartBlueTop;
 
-
-
-
     }
