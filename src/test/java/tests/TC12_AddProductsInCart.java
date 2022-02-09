@@ -69,11 +69,5 @@ public class TC12_AddProductsInCart {
 
         Assert.assertEquals("Rs. 400",cartPage.product_2_TotalPrice.getText());
 
-
-
-
-
-
-
     }
 }

@@ -73,6 +73,4 @@ public class CartPage {
     @FindBy(xpath = "(//p[@class='cart_total_price'])[2]")
     public WebElement product_2_TotalPrice;
 
-
-
 }
