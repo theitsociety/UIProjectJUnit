@@ -37,7 +37,7 @@ public class TC25_AytenT {
 //        6. Step
     //    je.executeScript("window.scrollTo(0,-350)");
      //   Driver.getDriver().findElement(By.id("scrollUp")).click();
-    //    page.UpArrow.click();
+        page.UpArrow.click();
         ReusableMethods.waitFor(4);
 //        7. Step
 
