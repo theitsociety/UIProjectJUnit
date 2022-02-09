@@ -65,9 +65,6 @@ public class HomePage {
     @FindBy(xpath = "//*[text()='Full-Fledged practice website for Automation Engineers'][1]")
     public WebElement fullText;
 
-    @FindBy(xpath = "//i[@class='fa fa-angle-right']")    //*[@class='fa fa-angle-right']
-    public WebElement rightArrow;
-
     @FindBy(xpath = "//*[@id='scrollUp']")
     public WebElement UpArrow;
 
