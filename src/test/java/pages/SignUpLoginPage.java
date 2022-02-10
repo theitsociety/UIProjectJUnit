@@ -6,9 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class SignUpLoginPage {
+
     public SignUpLoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
 
     @FindBy(xpath = "(//h2)[3]")
     public WebElement newUserSignUpText;
@@ -26,10 +28,12 @@ public class SignUpLoginPage {
     public WebElement loginButton;
     @FindBy(xpath = "//*[text()='Your email or password is incorrect!']")
     public WebElement incorrectEmail;
+
     @FindBy(xpath = "//h2[text()='Login to your account']")
     public WebElement loginMessage;
     @FindBy(partialLinkText = "Logged in as")
     public WebElement loggedInAsMessage;
     @FindBy(xpath = "//a[@href='/logout']")
     public WebElement logOutbutton;
+
 }

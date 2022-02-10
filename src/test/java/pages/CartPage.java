@@ -52,4 +52,7 @@ public class CartPage {
 
 }
 
+    @FindBy (xpath = "//table[@id='cart_info_table']/tbody" )
+    public WebElement orderTable;
+
 
