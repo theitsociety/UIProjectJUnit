@@ -36,7 +36,7 @@ public class Tests18_SerpilMTest {
 
         // 7. On left side bar, click on any sub-category link of 'Men' category
         homePage.menTshirt.click();
-
+//test
         // 8. Verify that user is navigated to that category page
         homePage.menPlusSign.click();
         Assert.assertTrue(homePage.menTshirt.isDisplayed());
