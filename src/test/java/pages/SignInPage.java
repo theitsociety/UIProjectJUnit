@@ -56,4 +56,8 @@ public class SignInPage {
     public WebElement accountCrated;
     @FindBy(xpath = "//*[@data-qa='continue-button']")
     public WebElement continue1;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main
