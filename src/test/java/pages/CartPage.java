@@ -73,6 +73,9 @@ public class CartPage {
     @FindBy(xpath = "(//p[@class='cart_total_price'])[2]")
     public WebElement product_2_TotalPrice;
 
+    @FindBy (xpath = "//table[@id='cart_info_table']/tbody" )
+    public WebElement orderTable;
+
 
 
 }
