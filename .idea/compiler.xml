@@ -9,11 +9,5 @@
         <module name="UIProjectJUnit" />
       </profile>
     </annotationProcessing>
-<<<<<<< HEAD
-=======
-    <bytecodeTargetLevel>
-      <module name="UIProjectJUnit" target="11" />
-    </bytecodeTargetLevel>
->>>>>>> main
   </component>
 </project>

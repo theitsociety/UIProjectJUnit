@@ -7,6 +7,7 @@ public class SignInPage {
     public SignInPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
     //Verify that 'ENTER ACCOUNT INFORMATION' is visible
     @FindBy(xpath = "(//b)[1]")
     public WebElement enterAccount;
@@ -56,8 +57,4 @@ public class SignInPage {
     public WebElement accountCrated;
     @FindBy(xpath = "//*[@data-qa='continue-button']")
     public WebElement continue1;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> main
